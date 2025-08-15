@@ -1,1 +1,273 @@
-<p>Hello World</p> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ayushi Shah Portfolio</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { display:flex; min-height:100vh; font-family:Arial,sans-serif; }
+  
+  /* Sidebar */
+  .sidebar {
+    width:260px; background:#111; color:white;
+    position:fixed; top:0; left:0; bottom:0;
+    padding:30px 20px; display:flex; flex-direction:column; align-items:center;
+  }
+  .profile-circle {
+    width:150px; height:150px; border-radius:50%;
+    overflow:hidden; border:3px solid #0dcaf0;
+    margin-bottom:15px; transition:transform 0.3s,box-shadow 0.3s;
+  }
+  .profile-circle:hover {
+    transform:scale(1.08); box-shadow:0 0 20px rgba(13,202,240,0.7);
+  }
+  .profile-circle img { width:100%; height:100%; object-fit:cover; }
+  .sidebar h2 { font-size:1.35em; margin-bottom:18px; text-align:center; }
+  
+  /* Social Icons */
+  .social-icons { display:flex; gap:14px; margin-bottom:25px; font-size:1.2em; }
+  .social-icons a { color:white; transition:color 0.3s; text-decoration:none; }
+  .social-icons a:hover { color:#0dcaf0; }
+  
+  /* Navigation */
+  nav ul { list-style:none; width:100%; }
+  nav ul li { margin:8px 0; }
+  nav ul li a {
+    color:white; text-decoration:none; padding:10px 15px;
+    display:block; border-radius:4px; transition:background 0.3s;
+  }
+  nav ul li a:hover, nav ul li a.active {
+    background:#ffffff; color:#000;
+  }
+  
+  /* Content */
+  .content { margin-left:260px; flex:1; }
+  
+  /* Default for all sections = 50vh */
+  section {
+    min-height:50vh;
+    padding:40px 30px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  /* Home Section = 100vh */
+  #home {
+    min-height:100vh;
+    background:url('https://i.ibb.co/CKJmMV10/medium-shot-smiley-woman-working.jpg') center/cover no-repeat;
+    color:white; text-align:left; justify-content:flex-start;
+  }
+  #home::before {
+    content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5);
+  }
+  #home .home-text {
+    position:relative; z-index:1; max-width:600px;
+  }
+  #home h2 {
+    font-size:2.5em; font-weight:bold; margin-bottom:15px;
+  }
+  #home p {
+    font-size:1.3em; font-weight:500;
+  }
+  
+  /* About Section */
+  #about {
+    background:white;
+    flex-direction:column;
+    padding-top:20px;
+  }
+  #about h2 {
+    font-size:2.5em;
+    font-weight:bold;
+    color:black;
+    margin-bottom:15px;
+    text-align:center;
+  }
+  #about .bio-text {
+    font-family:'Times New Roman', serif;
+    color:black;
+    font-size:1.2em;
+    line-height:1.6;
+    text-align:left;
+    display:inline-block;
+    max-width:800px;
+  }
+  
+  /* Skills */
+  .skill { margin-bottom:20px; position:relative; z-index:1; text-align:left; }
+  .skill-name { font-weight:bold; margin-bottom:6px; }
+  .progress-bar { width:100%; background:#ddd; border-radius:20px; overflow:hidden; }
+  .progress {
+    height:12px; background:#0dcaf0; width:0; transition:width 1.2s ease-in-out;
+  }
+  
+  /* Contact */
+  .contact-form { display:flex; flex-wrap:wrap; gap:20px; position:relative; z-index:1; }
+  .contact-form form, .contact-form iframe { flex:1; min-width:300px; }
+  .contact-form iframe { border:0; }
+  form input, form textarea, form button {
+    width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;
+  }
+  form button {
+    background:#0dcaf0; border:none; cursor:pointer; font-weight:bold;
+  }
+  form button:hover { background:#0bb2d4; }
+  
+  /* Responsive */
+  @media (max-width:768px) {
+    .sidebar {
+      position:relative; width:100%; flex-direction:row; justify-content:space-around;
+    }
+    .content { margin-left:0; }
+    nav ul { display:flex; flex-wrap:wrap; justify-content:center; }
+    nav ul li { margin:0 5px; }
+    .social-icons { display:none; }
+    section { min-height:auto; } /* Allow content-based height on small screens */
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="profile-circle">
+    <img src="https://i.ibb.co/DfGVrC92/Whats-App-Image-2025-08-15-at-10-13-18-217174d1.jpg" alt="Ayushi Shah">
+  </div>
+  <h2>Ayushi Shah</h2>
+  <div class="social-icons">
+    <a href="tel:+918851225875" title="Call Ayushi"><i class="fas fa-phone"></i></a>
+    <a href="https://www.instagram.com/_ayushishah04" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/ayushi-shah-89b7092a8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://wa.me/918851225875" target="_blank" title="WhatsApp Chat"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="content">
+  <!-- Home -->
+  <section id="home">
+    <div class="home-text">
+      <h2 id="line1"></h2>
+      <p id="line2"></p>
+    </div>
+  </section>
+  
+  <!-- About -->
+  <section id="about">
+    <h2>ABOUT</h2>
+    <h3 class="bio-text">
+      I’m Ayushi Shah, a passionate and creative web developer & designer who loves turning ideas into beautiful and functional websites. 
+      With a strong eye for detail and dedication to quality, I combine modern design trends with clean, efficient code to create unique online experiences.
+      My goal is to make every project not just visually appealing, but also user-friendly and impactful.
+    </h3>
+  </section>
+  
+  <!-- Resume -->
+  <section id="resume"><h2>Resume</h2><p>Experience & education details...</p></section>
+  
+  <!-- Portfolio -->
+  <section id="portfolio"><h2>Portfolio</h2><p>Projects showcase...</p></section>
+  
+  <!-- Services -->
+  <section id="services"><h2>Services</h2><p>What I offer...</p></section>
+  
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">HTML</div>
+      <div class="progress-bar"><div class="progress" data-width="100%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">CSS</div>
+      <div class="progress-bar"><div class="progress" data-width="100%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">JavaScript</div>
+      <div class="progress-bar"><div class="progress" data-width="100%"></div></div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section id="testimonials"><h2>Testimonials</h2><p>Client feedback here...</p></section>
+  
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Message" rows="5"></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <iframe src="https://www.google.com/maps?q=28.340028,77.332053&z=16&output=embed" width="100%" height="350" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Sidebar navigation
+  document.querySelectorAll('.sidebar nav ul li a').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.sidebar nav ul li a').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Skills animation
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.progress').forEach(bar => {
+      if (!bar.style.width) {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          bar.style.width = bar.getAttribute('data-width');
+        }
+      }
+    });
+  });
+
+  // Typewriter for Home
+  const line1Text = "Hello, I'm Ayushi Shah";
+  const line2Text = "A creative Web developer & designer.";
+  let i = 0, j = 0;
+  function typeLine1() {
+    if (i < line1Text.length) {
+      document.getElementById("line1").textContent += line1Text.charAt(i);
+      i++;
+      setTimeout(typeLine1, 80);
+    } else {
+      setTimeout(typeLine2, 400);
+    }
+  }
+  function typeLine2() {
+    if (j < line2Text.length) {
+      document.getElementById("line2").textContent += line2Text.charAt(j);
+      j++;
+      setTimeout(typeLine2, 60);
+    }
+  }
+
+  window.onload = () => {
+    typeLine1();
+  };
+</script>
+
+</body>
+</html>
