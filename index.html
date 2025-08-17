@@ -76,6 +76,9 @@
     background:url('https://i.ibb.co/CKJmMV10/medium-shot-smiley-woman-working.jpg') center/cover no-repeat;
     color:white; text-align:left; justify-content:flex-start;
   }
+  #line2 {
+  color: white;
+}
   #home::before {
     content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5);
   }
@@ -90,6 +93,15 @@
   }
   
   /* About Section */
+  .about-content {
+  background:#fff;
+  padding:30px;
+  border-radius:10px;
+  max-width:850px;
+  margin:40px auto 0;  /* centers horizontally and adds top gap */
+  box-shadow:0 8px 30px rgba(0,0,0,0.5); /* same as resume shadow */
+}
+
   #about {
     background:white;
     flex-direction:column;
@@ -104,10 +116,10 @@
   }
   #about .bio-text {
     font-family:'Times New Roman', serif;
-    color:#222;
+    color:black;
     font-size:1.1em;
     line-height:1.8;
-    text-align:justify;
+    text-align:Left;
     max-width:850px;
   }
   #about .bio-text p {
@@ -238,7 +250,8 @@
   
   <!-- About -->
   <section id="about">
-    <h2>ABOUT</h2>
+  <h2>ABOUT</h2>
+  <div class="about-content">
     <div class="bio-text">
       <p>Hi, I’m <b>Ayushi Shah</b>, a passionate <b>Web Developer</b> who loves building ideas into reality through clean, modern, and functional websites. My journey into web development began with curiosity about how simple web pages work, and today it has grown into a strong skill set that allows me to create responsive, user-friendly, and impactful digital experiences.</p>
       
@@ -248,8 +261,9 @@
       
       <p>Outside of coding, I enjoy exploring different aspects of <b>software engineering</b>, from understanding system designs to discovering how technologies connect together to build powerful solutions.</p>
     </div>
-  </section>
-  
+  </div>
+</section>
+
   <!-- Resume -->
   <!-- Resume -->
   <section id="resume">
