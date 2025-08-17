@@ -14,21 +14,37 @@
     position:fixed; top:0; left:0; bottom:0;
     padding:30px 20px; display:flex; flex-direction:column; align-items:center;
   }
+
+  /* Profile Image with Gradient Border */
   .profile-circle {
     width:150px; height:150px; border-radius:50%;
-    overflow:hidden; border:3px solid #0dcaf0;
-    margin-bottom:15px; transition:transform 0.3s,box-shadow 0.3s;
+    padding:4px; /* border jaisa effect ke liye */
+    background:linear-gradient(135deg, #ff7eb3, #ff758c, #ffae00, #a3d8ff, #8e44ad);
+    background-size:300% 300%;
+    animation: borderGradient 6s ease infinite;
+    margin-bottom:15px;
+    transition:transform 0.4s, box-shadow 0.4s;
+  }
+  .profile-circle img {
+    width:100%; height:100%; border-radius:50%; object-fit:cover;
+    border:3px solid #111; /* andar ka border black for clean contrast */
   }
   .profile-circle:hover {
-    transform:scale(1.08); box-shadow:0 0 20px rgba(13,202,240,0.7);
+    transform:scale(1.1);
+    box-shadow:0 0 25px rgba(255,118,178,0.7);
   }
-  .profile-circle img { width:100%; height:100%; object-fit:cover; }
+  @keyframes borderGradient {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
   .sidebar h2 { font-size:1.35em; margin-bottom:18px; text-align:center; }
   
   /* Social Icons */
   .social-icons { display:flex; gap:14px; margin-bottom:25px; font-size:1.2em; }
   .social-icons a { color:white; transition:color 0.3s; text-decoration:none; }
-  .social-icons a:hover { color:#0dcaf0; }
+  .social-icons a:hover { color:#ff7eb3; }
   
   /* Navigation */
   nav ul { list-style:none; width:100%; }
@@ -88,20 +104,74 @@
   }
   #about .bio-text {
     font-family:'Times New Roman', serif;
-    color:black;
-    font-size:1.2em;
-    line-height:1.6;
-    text-align:left;
-    display:inline-block;
-    max-width:800px;
+    color:#222;
+    font-size:1.1em;
+    line-height:1.8;
+    text-align:justify;
+    max-width:850px;
   }
-  
+  #about .bio-text p {
+    margin-bottom:18px;
+  }
+  /*resume section*/
+  #resume {
+  background:#f8f8f8;
+  display:block;          /* stops flex alignment */
+  padding:60px 30px;       /* extra space top/bottom */
+  text-align:center;       /* centers the heading */
+}
+
+  #resume h2 {
+    font-size:2.5em;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:20px;
+  }
+ .resume-content {
+  background:#fff;
+  padding:30px;
+  border-radius:10px;
+  max-width:850px;
+  margin:40px auto 0;       /* adds gap from heading + centers horizontally */
+  box-shadow:0 8px 30px rgba(0,0,0,0.5); /* nice shadow */
+  text-align:left;          /* content inside box stays aligned left */
+}
+
+
+
+  .contact-info {
+    display:flex; flex-wrap:wrap; gap:15px;
+    justify-content:center; font-size:14px; margin-bottom:20px;
+  }
+  .section-title {
+    font-size:18px; font-weight:bold;
+    margin:20px 0 10px;
+    border-bottom:2px solid #000;
+    display:inline-block;
+    padding-bottom:3px;
+  }
+  p, li { font-size:14px; color:#333; line-height:1.5; }
+  ul { margin-left:20px; }
+  .skills-list {
+    display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;
+  }
+  .skills-list div { flex:1 1 200px; }
+  .download-btn {
+    display:block;
+    width:max-content;
+    margin:30px auto 0;
+    padding:10px 20px;
+    background:#000; color:#fff;
+    text-decoration:none; font-size:16px;
+    border-radius:5px; transition:0.3s;
+  }
+  .download-btn:hover { background:#444; }
   /* Skills */
   .skill { margin-bottom:20px; position:relative; z-index:1; text-align:left; }
   .skill-name { font-weight:bold; margin-bottom:6px; }
   .progress-bar { width:100%; background:#ddd; border-radius:20px; overflow:hidden; }
   .progress {
-    height:12px; background:#0dcaf0; width:0; transition:width 1.2s ease-in-out;
+    height:12px; background:#ff7eb3; width:0; transition:width 1.2s ease-in-out;
   }
   
   /* Contact */
@@ -112,9 +182,9 @@
     width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;
   }
   form button {
-    background:#0dcaf0; border:none; cursor:pointer; font-weight:bold;
+    background:#ff7eb3; border:none; cursor:pointer; font-weight:bold; color:white;
   }
-  form button:hover { background:#0bb2d4; }
+  form button:hover { background:#ff4f91; }
   
   /* Responsive */
   @media (max-width:768px) {
@@ -125,7 +195,7 @@
     nav ul { display:flex; flex-wrap:wrap; justify-content:center; }
     nav ul li { margin:0 5px; }
     .social-icons { display:none; }
-    section { min-height:auto; } /* Allow content-based height on small screens */
+    section { min-height:auto; }
   }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -169,16 +239,75 @@
   <!-- About -->
   <section id="about">
     <h2>ABOUT</h2>
-    <h3 class="bio-text">
-      I’m Ayushi Shah, a passionate and creative web developer & designer who loves turning ideas into beautiful and functional websites. 
-      With a strong eye for detail and dedication to quality, I combine modern design trends with clean, efficient code to create unique online experiences.
-      My goal is to make every project not just visually appealing, but also user-friendly and impactful.
-    </h3>
+    <div class="bio-text">
+      <p>Hi, I’m <b>Ayushi Shah</b>, a passionate <b>Web Developer</b> who loves building ideas into reality through clean, modern, and functional websites. My journey into web development began with curiosity about how simple web pages work, and today it has grown into a strong skill set that allows me to create responsive, user-friendly, and impactful digital experiences.</p>
+      
+      <p>I specialize in <b>front-end development</b> with expertise in <b>HTML, CSS, JavaScript</b>, and modern frameworks, while also exploring back-end technologies to deliver complete web solutions. For me, coding isn’t just about writing lines of code — it’s about solving problems, enhancing user experiences, and blending creativity with technology.</p>
+      
+      <p>What defines me most is my <b>attention to detail</b>, <b>curiosity to learn</b>, and a <b>problem-solving mindset</b>. I love working on projects that challenge me, encourage growth, and push me to think differently. Whether it’s designing sleek portfolio sites, crafting scalable web apps, or experimenting with new tools, I put my heart into every project.</p>
+      
+      <p>Outside of coding, I enjoy exploring different aspects of <b>software engineering</b>, from understanding system designs to discovering how technologies connect together to build powerful solutions.</p>
+    </div>
   </section>
   
   <!-- Resume -->
-  <section id="resume"><h2>Resume</h2><p>Experience & education details...</p></section>
-  
+  <!-- Resume -->
+  <section id="resume">
+    <h2>RESUME</h2>
+    <div class="resume-content">
+      <div class="contact-info">
+        <span>📞 +91-8851225875</span>
+        <span>✉ ayushishah409@gmail.com</span>
+        <span>📍 Ballabgarh, Faridabad, Haryana</span>
+        <span>🔗 <a href="https://www.linkedin.com/in/ayushi-shah-89b70928a/" target="_blank">LinkedIn</a></span>
+      </div>
+
+      <div>
+        <div class="section-title">ABOUT ME</div>
+        <p>I am a highly motivated BCA student actively seeking opportunities to apply my academic
+knowledge in a web development role. I am eager to make a significant impact by utilizing
+my programming skills to design websites and ready to transform my academic
+experiences into real- world results within your company.</p>
+      </div>
+
+      <div>
+        <div class="section-title">EDUCATION</div>
+        <p><strong>J.C. Bose University Of Science And Technology, YMCA | 2023-2026</strong><br>Bachelor Degree - Computer Applications (BCA)</p>
+        <p><strong>Rawal Convent School</strong><br>Intermediate - Science (Non medical)</p>
+        <p><strong>Rawal Convent School</strong><br>Matriculation - All subjects</p>
+      </div>
+
+      <div>
+        <div class="section-title">WORK EXPERIENCE</div>
+        <p><strong> Ea Immigrations | 4 Months </strong></p>
+        <p><strong>Web Developer Intern</strong></p>
+        <ul>
+          <li>Built and maintained responsive websites...</li>
+          <li>Optimized website speed and improved user experience.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-title">TECHNICAL SKILLS</div>
+        <div class="skills-list">
+          <div><ul><li>HTML-5</li><li>CSS</li><li>JavaScript</li><li>WordPress</li><li>C++</li></ul></div>
+          <div><ul><li>Python</li><li>DSA</li><li>Problem Solving</li><li>Canva</li><li>GitHub</li></ul></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">SOFT SKILLS</div>
+        <ul>
+          <li>Leadership</li>
+          <li>Teamwork</li>
+          <li>Good Communication Skills</li>
+          <li>Adaptive and Agile</li>
+        </ul>
+      </div>
+
+      <a href="file:///C:/Users/ayush/OneDrive/Downloads/Ayushi%20shah%20Web%20developer.pdf" class="download-btn" download>Download Resume</a>
+    </div>
+  </section>
   <!-- Portfolio -->
   <section id="portfolio"><h2>Portfolio</h2><p>Projects showcase...</p></section>
   
