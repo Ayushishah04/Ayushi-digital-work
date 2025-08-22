@@ -9,7 +9,7 @@
     });
   });
 
-  // Skills animation
+  // Skills animations
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.progress').forEach(bar => {
       if (!bar.style.width) {
