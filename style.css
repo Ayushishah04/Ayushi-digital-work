@@ -293,6 +293,8 @@ section.skills h3 {
     nav ul li { margin:0 5px; }
     .social-icons { display:none; }
     section { min-height:auto; }
+    .profile-circle { width:80px; height:80px; }
+  .sidebar h2 { font-size:1em; }
   }
 
   /*certifate section*/
@@ -440,4 +442,24 @@ section.skills h3 {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: left;   /* labels/inputs left align for professional look */
+}
+@media (max-width:992px) {
+  .skill-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:600px) {
+  .skill-grid { grid-template-columns: 1fr; }
+  .flip-card { width:100%; max-width:300px; margin:auto; }
+}
+@media (max-width:400px) {
+  .certificate-card { padding:15px; }
+  .certificate-card h3 { font-size:16px; }
+}
+@media (max-width:768px) {
+  .contact-container { flex-direction:column; align-items:center; }
+  .contact-form, .contact-map { max-width:100%; min-width:auto; }
+}
+@media (max-width:600px) {
+  #home h2 { font-size:1.8em; }
+  #home p { font-size:1em; }
+  #about h2, #resume h2, section.skills h2, #contact h2 { font-size:1.8em; }
 }
