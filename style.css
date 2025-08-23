@@ -166,11 +166,11 @@
     width:max-content;
     margin:30px auto 0;
     padding:10px 20px;
-    background:#000; color:#fff;
+    background:#ff4081; color:#fff;
     text-decoration:none; font-size:16px;
     border-radius:5px; transition:0.3s;
   }
-  .download-btn:hover { background:#444; }
+  .download-btn:hover { background:#ff4081; }
   /* Skills */
 
   section.skills {
@@ -295,4 +295,149 @@ section.skills h3 {
     section { min-height:auto; }
   }
 
+  /*certifate section*/
+  #Certificates {
   
+  background: #fff;
+    min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* center section horizontally */
+  justify-content: center;   /* center section vertically */
+  padding: 60px 24px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+#Certificates .section-title {
+ text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+  text-decoration: none;   /* underline hatao */
+  border-bottom: none;     /
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto; /* center grid */
+}
+
+.certificate-card {
+ background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(255, 66, 122, 0.15); /* 🔥 pink shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 12px 25px rgba(255, 66, 122, 0.3); /* 🔥 hover pe zyada strong */
+}
+
+.certificate-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.certificate-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.certificate-card a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #FF427A;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none !important;  /* 🚀 underline forcefully hatao */
+  transition: background 0.3s ease;
+}
+
+
+.certificate-card a:hover {
+  background: #e0366a;
+}
+@media (max-width: 992px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .certificates-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+}
+/* Contact Section */
+#contact {
+  background: #fff;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  justify-content: center;   
+  padding: 60px 24px;
+  max-width: 1200px;   /* thoda bada kiya for balance */
+  margin: auto;
+  text-align: center;
+}
+
+#contact h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Container: Form + Map side by side */
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;               /* thoda zyada spacing clean look ke liye */
+  justify-content: space-between;
+  align-items: stretch;  
+  width: 100%;
+}
+
+/* Left: Google Form | Right: Google Map */
+.contact-form, 
+.contact-map {
+  flex: 1 1 48%;   /* dono ~50% width lenge */
+  min-width: 350px;   /* mobile pe niche aa jayenge */
+  max-width: 550px;
+}
+
+/* Map styling */
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Form styling */
+.contact-form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;   /* labels/inputs left align for professional look */
+}
