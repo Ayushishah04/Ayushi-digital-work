@@ -1,5 +1,6 @@
 
-  // Sidebar navigation
+  // Sidebar navigations
+  
   document.querySelectorAll('.sidebar nav ul li a').forEach(a => {
     a.addEventListener('click', function(e) {
       e.preventDefault();
